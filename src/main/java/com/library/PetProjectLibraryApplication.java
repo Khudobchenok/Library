@@ -1,8 +1,8 @@
-package ru.khudobchenok.petproject_library;
+package com.library;
 
+import com.library.entity.User;
+import com.library.repository.UserRepo;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.khudobchenok.petproject_library.database.User;
-import ru.khudobchenok.petproject_library.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

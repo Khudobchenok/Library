@@ -1,6 +1,6 @@
-package ru.khudobchenok.petproject_library.repository;
+package com.library.repository;
 
-import ru.khudobchenok.petproject_library.database.User;
+import com.library.entity.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

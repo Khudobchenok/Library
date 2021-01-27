@@ -1,4 +1,4 @@
-package ru.khudobchenok.petproject_library.database;
+package com.library.entity;
 
 import javax.persistence.*;
 
@@ -18,6 +18,9 @@ public class User {
     /**
      * Конструктор
      */
+
+    protected User() {}
+
     public User(String login, String password) {
         this.login = login;
         this.password = password;
