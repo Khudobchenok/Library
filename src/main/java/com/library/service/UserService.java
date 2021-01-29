@@ -4,8 +4,6 @@ import com.library.entity.Role;
 import com.library.entity.User;
 import com.library.repository.RoleRepo;
 import com.library.repository.UserRepo;
-import lombok.Data;
-import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
