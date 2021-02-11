@@ -18,8 +18,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    /** РАЗОБРАТЬСЯ */
-    @Autowired
     private UserService userService;
 
     @Bean
