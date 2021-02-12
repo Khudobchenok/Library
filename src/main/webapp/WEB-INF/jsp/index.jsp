@@ -14,7 +14,7 @@
     <h3>${pageContext.request.userPrincipal.name}</h3>
     <sec:authorize access="!isAuthenticated()">
         <h4><a href="/login">Войти</a></h4>
-        <h4><a href="/registration">Зарегестрироваться</a></h4>
+        <h4><a href="/registration">Зарегистрироваться</a></h4>
     </sec:authorize>
     <sec:authorize access="isAuthenticated()">
         <h4><a href="/logout">Выйти</a></h4>
