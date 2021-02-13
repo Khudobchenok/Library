@@ -1,11 +1,11 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Вход в систему</title>
+    <title>Log in with your account</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
             <input name="username" type="text" placeholder="Username"
                    autofocus="true"/>
             <input name="password" type="password" placeholder="Password"/>
-            <button type="submit">Войти</button>
+            <button type="submit">Log In</button>
             <h4><a href="/registration">Зарегистрироваться</a></h4>
         </div>
     </form>
