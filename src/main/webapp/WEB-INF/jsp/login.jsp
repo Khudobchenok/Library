@@ -10,7 +10,6 @@
 </head>
 
 <body>
-<img src="${contextPath}/resources/img/background.jpg"/>
 <sec:authorize access="isAuthenticated()">
     <% response.sendRedirect("/"); %>
 </sec:authorize>

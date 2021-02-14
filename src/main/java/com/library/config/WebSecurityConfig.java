@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/addBook").hasRole("ADMIN")
                 .antMatchers("/news").hasRole("USER")
                 //Доступ разрешен всем пользователям
-                .antMatchers("/","/resources/**").permitAll()
+                .antMatchers("/","/resources/**", "/h2-console").permitAll()
                 //Все остальные страницы требуют аутентификации
                 .anyRequest().authenticated().and()
                 //Настройка для входа в систему
