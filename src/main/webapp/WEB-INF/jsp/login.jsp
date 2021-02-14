@@ -6,21 +6,25 @@
 <head>
     <meta charset="utf-8">
     <title>Log in with your account</title>
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
 </head>
 
 <body>
+<img src="${contextPath}/resources/img/background.jpg"/>
 <sec:authorize access="isAuthenticated()">
     <% response.sendRedirect("/"); %>
 </sec:authorize>
 <div>
-    <form method="POST" action="/login">
-        <h2>Вход в систему</h2>
-        <div>
-            <input name="username" type="text" placeholder="Username"
-                   autofocus="true"/>
-            <input name="password" type="password" placeholder="Password"/>
-            <button type="submit">Log In</button>
-            <h4><a href="/registration">Зарегистрироваться</a></h4>
+    <form method="POST" action="/login" class="transparent">
+        <div class="form-inner">
+            <h3>Регистрация</h3>
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username">
+            <label for="password">Пароль</label>
+            <input id="password" type="password">
+            <input type="checkbox" id="custom-checkbox">
+            <label for="custom-checkbox">Запомнить меня</label>
+            <input type="submit" value="Отправить">
         </div>
     </form>
 </div>
