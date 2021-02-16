@@ -98,18 +98,11 @@
             <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.0.60</version>
-            <scope>test</scope>
-        </dependency>
         <!--DATABASE-->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.18</version>
         </dependency>
     </dependencies>
 
