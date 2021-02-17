@@ -41,4 +41,11 @@ public class AdminController {
         model.addAttribute("allUsers", userService.usergtList(userId));
         return "admin";
     }
+
+    @GetMapping("/addAuthor")
+    public String addAuthor (@RequestParam(value = "name") final String name,
+                             @RequestParam(value = "biography") final String biography) {
+        authorService.addAuthor(name, biography);
+        return "admin";
+    }
 }
