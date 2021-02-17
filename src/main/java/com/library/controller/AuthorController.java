@@ -10,10 +10,5 @@ public class AuthorController {
 
     AuthorService authorService;
 
-    @GetMapping("/addAuthor")
-    public String addAuthor (@RequestParam(value = "name") final String name,
-                             @RequestParam(value = "biography") final String biography) {
-        authorService.addAuthor(name, biography);
-        return "admin";
-    }
+
 }
