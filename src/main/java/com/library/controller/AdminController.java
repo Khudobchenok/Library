@@ -1,5 +1,6 @@
 package com.library.controller;
 
+import com.library.service.AuthorService;
 import com.library.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,9 @@ public class AdminController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    AuthorService authorService;
 
     @GetMapping("/admin")
     public String userList(Model model) {
