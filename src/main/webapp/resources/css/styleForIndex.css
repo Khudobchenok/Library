@@ -3,7 +3,7 @@
     transition: .3s linear;
 }
 body {
-    background: url(../img/intro.jpg) no-repeat center center fixed;
+    background: url(../images/intro.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 .wrap {
