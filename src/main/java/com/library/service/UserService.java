@@ -84,6 +84,15 @@ public class UserService implements UserDetailsService {
         return false;
     }
 
+    public boolean addAdmin(Long userId) {
+        if (userRepo.findById(userId).isPresent()) {
+            /*userRepo.findUserById(userId);
+            em.createQuery("INSERT INTO public.users_roles(user_id, roles_id) VALUES (userId, 2)");*/
+            return true;
+        }
+        return false;
+    }
+
     public List<User> usergtList(Long idMin) {
         return em.createQuery("SELECT u FROM User u WHERE u.id > :paramId", User.class)
                 .setParameter("paramId", idMin).getResultList();

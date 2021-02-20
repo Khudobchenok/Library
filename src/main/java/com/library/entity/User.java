@@ -45,6 +45,7 @@ public class User implements UserDetails {
      * Конструкторы
      */
 
+
     public User() {
     }
 

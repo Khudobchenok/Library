@@ -52,4 +52,13 @@ public class AdminController {
         authorService.addAuthor(name, biography);
         return "admin";
     }
+
+    @PostMapping("/addAdmin")
+    public String addAdmin (@RequestParam(required = true, defaultValue = "") Long userId,
+                            @RequestParam(required = true, defaultValue = "") String action) {
+        if (action.equals("newAdmin")) {
+            userService.addAdmin(userId);
+        }
+        return "redirect:/admin";
+    }
 }
