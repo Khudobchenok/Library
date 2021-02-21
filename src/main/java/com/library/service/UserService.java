@@ -58,6 +58,17 @@ public class UserService implements UserDetailsService {
     }
 
     public boolean saveUser(User user) {
+        boolean onlyNumbers = user.getUsername().matches("^[0-9]+$");
+        if (onlyNumbers) {
+            return false;
+        }
+        if (user.getPassword().length() < 4) {
+            return false;
+        }
+        boolean testUsers = user.getUsername().contains("test");
+        if (testUsers) {
+            return false;
+        }
         User userFromDB = userRepo.findByUsername(user.getUsername());
 
         if (userFromDB != null) {
