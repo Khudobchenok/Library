@@ -19,6 +19,7 @@ public class Author {
     private Long id;
     @Column(unique = true)
     private String name;
+    @Column(length = 1500)
     private String biography;
     @OneToMany
     private List<Book> books;

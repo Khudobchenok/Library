@@ -24,6 +24,7 @@ body {
 h2 {
     font-family: 'Roboto Slab', serif;
     font-weight: normal;
+    font-size: 3em;
 }
 .line {
     display: block;
@@ -57,7 +58,7 @@ h2 {
 }
 p, a {
     font-family: 'PT Sans Caption', sans-serif;
-    font-size: .8em;
+    font-size: 1em;
 }
 a {
     text-decoration: none;

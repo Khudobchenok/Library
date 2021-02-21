@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Регистрация</title>
+    <title>Sign up</title>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
     <link rel="icon" type="image/png" href="${contextPath}/resources/images/icons/favicon.ico"/>
     <!--===============================================================================================-->
@@ -34,15 +34,15 @@
 <body>
 <nav>
     <ul class="topmenu">
-        <li><a href="/">Main</a></li>
-        <li><a href="">Books</a></li>
+        <li><a href="/welcome">Main</a></li>
+        <li><a href="/books">Books</a></li>
         <sec:authorize access="!isAuthenticated()">
         <li><a href="/login">Sign in</a>
             <ul class="submenu">
                 <li><a href="/registration">Sign up</a></li>
             </ul>
             </sec:authorize>
-        <li><a href="/welcome">Contacts</a></li>
+        <li><a href="/">Contacts</a></li>
         <sec:authorize access="isAuthenticated()">
         <li><a href="/logout">Sign out</a>
             </sec:authorize>
@@ -52,7 +52,7 @@
     </ul>
 </nav>
 <sec:authorize access="isAuthenticated()">
-    <% response.sendRedirect("/"); %>
+    <% response.sendRedirect("/welcome"); %>
 </sec:authorize>
 <div class="limiter">
     <div class="container-login100">
@@ -128,7 +128,7 @@
 						</span>
 
                     <a href="/login" class="txt2">
-                        Sign Up
+                        Sign In
                     </a>
                 </div>
             </form:form>

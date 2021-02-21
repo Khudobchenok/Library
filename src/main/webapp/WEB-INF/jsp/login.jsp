@@ -33,15 +33,15 @@
 <body>
 <nav>
     <ul class="topmenu">
-        <li><a href="/">Main</a></li>
-        <li><a href="">Books</a></li>
+        <li><a href="/welcome">Main</a></li>
+        <li><a href="/books">Books</a></li>
         <sec:authorize access="!isAuthenticated()">
         <li><a href="/login">Sign in</a>
             <ul class="submenu">
                 <li><a href="/registration">Sign up</a></li>
             </ul>
         </sec:authorize>
-        <li><a href="/welcome">Contacts</a></li>
+        <li><a href="/">Contacts</a></li>
         <sec:authorize access="isAuthenticated()">
         <li><a href="/logout">Sign out</a>
         </sec:authorize>
@@ -51,7 +51,7 @@
     </ul>
 </nav>
 <sec:authorize access="isAuthenticated()">
-    <% response.sendRedirect("/"); %>
+    <% response.sendRedirect("/welcome"); %>
 </sec:authorize>
 <div class="limiter">
     <div class="container-login100">
@@ -90,7 +90,7 @@
 
                 <div class="txt1 text-center p-t-54 p-b-20">
 						<span>
-							Or Sign Up Using
+							Or Sign In Using
 						</span>
                 </div>
 

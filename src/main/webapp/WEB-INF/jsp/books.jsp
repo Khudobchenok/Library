@@ -5,9 +5,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Main</title>
+    <title>Books</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/books.css">
     <link rel="icon" type="image/png" href="${contextPath}/resources/images/icons/favicon.ico"/>
 </head>
 <body>
@@ -31,14 +31,24 @@
     </ul>
 </nav>
 <center>
-    <p></p>
-    <iframe width="1120" height="630" src="https://www.youtube-nocookie.com/embed/4vIQON2fDWM"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
-            picture-in-picture" allowfullscreen></iframe>
+    <sec:authorize access="hasRole('ADMIN')">
+        <a href="/addAuthor" class="floating-button">New author</a>
+        <a href="/addBook" class="floating-button">New book</a>
+    </sec:authorize>
+<table>
+    <c:forEach items="${allBooks}" var="book">
+        <tr>
+            <td><font size="6" color="black" face="Times, Times New Roman, serif">${book.author.name}</font> <%--<br> ${book.author.name}--%></td>
+            <td><img src="https://html5book.ru/wp-content/uploads/2015/04/dress-2.png"></td>
+            <td><font size="6" color="black", face="Marker Felt, fantasy">${book.name}</font>
+                <br><font size="5" color="black", face="Snell Roundhand, cursive"> ${book.description} </font></td>
+        </tr>
+    </c:forEach>
+</table>
 </center>
 <blockquote>
-    <p>I am not young enough to know everything.</p>
-    <footer>— <cite>Oscar Wilde</cite></footer>
+    <p>While we are postponing, life speeds by.</p>
+    <footer>— <cite>Seneca</cite></footer>
 </blockquote>
 </body>
 </html>
