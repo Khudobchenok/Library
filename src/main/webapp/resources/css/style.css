@@ -7,20 +7,236 @@ body {
     background-size: 100%; /* Современные браузеры */
 }
 
-body:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(45deg, rgba(0,0,0,0), rgba(255,255,255,.8));
-}
 * {
     box-sizing: border-box;
 }
+/*ТАБЛИЦА ADMIN*/
+.table_blur {
+    background: #f5ffff;
+    border-collapse: collapse;
+    text-align: left;
+}
+.table_blur th {
+    border-top: 1px solid #777777;
+    border-bottom: 1px solid #777777;
+    box-shadow: inset 0 1px 0 #999999, inset 0 -1px 0 #999999;
+    background: linear-gradient(#9595b6, #5a567f);
+    color: white;
+    padding: 10px 15px;
+    position: relative;
+}
+.table_blur1 th {
+    border-top: 1px solid #777777;
+    border-bottom: 1px solid #777777;
+    box-shadow: inset 0 1px 0 #999999, inset 0 -1px 0 #999999;
+    background: linear-gradient(#9595b6, #5a567f);
+    color: white;
+    padding: 10px 15px;
+    position: relative;
+}
+.table_blur th:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 25%;
+    width: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255,255,255,.08));
+}
+.table_blur tr:nth-child(odd) {
+    background: #ebf3f9;
+}
+.table_blur th:first-child {
+    border-left: 1px solid #777777;
+    border-bottom:  1px solid #777777;
+    box-shadow: inset 1px 1px 0 #999999, inset 0 -1px 0 #999999;
+}
+.table_blur th:last-child {
+    border-right: 1px solid #777777;
+    border-bottom:  1px solid #777777;
+    box-shadow: inset -1px 1px 0 #999999, inset 0 -1px 0 #999999;
+}
+.table_blur td {
+    border: 1px solid #e3eef7;
+    padding: 10px 15px;
+    position: relative;
+    transition: all 0.5s ease;
+}
+.table_blur tbody:hover td {
+    color: transparent;
+    text-shadow: 0 0 3px #a09f9d;
+}
+.table_blur tbody:hover tr:hover td {
+    color: #444444;
+    text-shadow: none;
+}
+.post-title {
+    text-transform: uppercase;
+}
+.post-title h2 {
+    font-family: 'Lora', serif;
+    font-weight: normal;
+    line-height: 1.8em;
+    font-size: 20px;
+    color: indigo;
+    margin: 13px 0 8px;
+    letter-spacing: 0.08em;
+}
+/*ДОБАВЛЕНИЕ КНИГИ/АВТОРА*/
+*:focus {
+    outline: none;
+}
+body {
+    font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+.new_form h2, .new_form label {
+    font-family:Georgia, Times, "Times New Roman", serif;
+}
+.form_hint, .required_notification {
+    font-size: 11px;
+}
+.new_form ul {
+    width:750px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+}
+.new_form li{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    position:relative;
+}
+.new_form li:first-child, .new_form li:last-child {
+    border-bottom:1px solid #777;
+}
+.new_form h2 {
+    margin:0;
+    display: inline;
+}
+.required_notification {
+    color:#d45252;
+    margin:10px 0 0 0;
+    display:inline;
+    float:right;
+}
+.new_form label {
+    width:150px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+}
+.new_form input {
+    height:20px;
+    width:220px;
+    padding:5px 8px;
+}
+.new_form textarea {
+    padding:8px; width:500px;
+}
+.new_form button {
+    margin-left:156px;
+}
+.new_form input, .new_form textarea {
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+}
+.new_form input:focus, .new_form textarea:focus {
+    background: #fff;
+    border:1px solid #555;
+    box-shadow: 0 0 3px #aaa;
+}
+/* Button Style */
+button.submit {
+    background-color: #68b12f;
+    background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
+    background: -webkit-linear-gradient(top, #68b12f, #50911e);
+    background: -moz-linear-gradient(top, #68b12f, #50911e);
+    background: -ms-linear-gradient(top, #68b12f, #50911e);
+    background: -o-linear-gradient(top, #68b12f, #50911e);
+    background: linear-gradient(top, #68b12f, #50911e);
+    border: 1px solid #509111;
+    border-bottom: 1px solid #5b992b;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #9fd574;
+    -webkit-box-shadow: 0 1px 0 0 #9fd574 inset ;
+    -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -o-box-shadow: 0 1px 0 0 #9fd574 inset;
+    color: white;
+    font-weight: bold;
+    padding: 6px 20px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #396715;
+}
+button.submit:hover {
+    opacity:.85;
+    cursor: pointer;
+}
+button.submit:active {
+    border: 1px solid #20911e;
+    box-shadow: 0 0 10px 5px #356b0b inset;
+    -webkit-box-shadow:0 0 10px 5px #356b0b inset ;
+    -moz-box-shadow: 0 0 10px 5px #356b0b inset;
+    -ms-box-shadow: 0 0 10px 5px #356b0b inset;
+    -o-box-shadow: 0 0 10px 5px #356b0b inset;
+}
+.new_form input:focus:invalid, .new_form textarea:focus:invalid { /* when a field is considered invalid by the browser */
+    background: #fff url(../webapp/resources/images/icons/invalid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+.new_form input:required:valid, .new_form textarea:required:valid { /* when a field is considered valid by the browser */
+    background: #fff url(../webapp/resources/images/icons/valid.jpg) no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+.new_form input:focus + .form_hint {
+    display: inline;
+}
+.new_form input:required:valid + .form_hint {
+    background: #28921f;
+} /* change form hint color when valid */
+.new_form input:required:valid + .form_hint::before {
+    color:#28921f;
+} /* change form hint arrow color when valid */
+/*ЦИТАТЫ*/
+blockquote {
+    margin: 0;
+    color: #231E28;
+    padding: 30px 30px 30px 60px;
+    border-left: 8px solid #CBDDE7;
+    position: absolute;
+    background: #FAF8EB;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    opacity: 0.6;
+    filter: alpha(Opacity=60);
+    right: 10px;
+    bottom: 10px;
+}
+blockquote:before{
+    content: "\201C";
+    font-family: Arial;
+    color: #CBDDE7;
+    font-size: 70px;
+    position: absolute;
+    left: 15px;
+    top: 5px;
+}
+blockquote p {
+    font-style: italic;
+    font-size: 24px;
+    margin-top: 0;
+}
 /* ГОРИЗОНТАЛЬНОЕ ВЫПАДАЩЕЕ МЕНЮ */
-
 @import url(https://fonts.googleapis.com/css?family=Kaushan+Script|Libre+Baskerville);
 nav {
     text-align: center;

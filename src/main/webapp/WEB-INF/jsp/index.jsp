@@ -5,29 +5,22 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Главная</title>
+    <title>Contacts</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/styleForIndex.css">
+    <link rel="icon" type="image/png" href="${contextPath}/resources/images/icons/favicon.ico"/>
 </head>
 <body>
-<nav>
-    <ul class="topmenu">
-        <li><a href="/">Main</a></li>
-        <li><a href="">Books</a></li>
-        <sec:authorize access="!isAuthenticated()">
-        <li><a href="/login">Sign in</a>
-            <ul class="submenu">
-                <li><a href="/registration">Sign up</a></li>
-            </ul>
-            </sec:authorize>
-        <li><a href="/welcome">Contacts</a></li>
-        <sec:authorize access="isAuthenticated()">
-        <li><a href="/logout">Sign out</a>
-            </sec:authorize>
-            <sec:authorize access="hasRole('ADMIN')">
-        <li><a href="/admin">Admin</a>
-            </sec:authorize>
-    </ul>
-</nav>
+<div class="wrap">
+    <div class="inner">
+        <h2>Pet-project</h2>
+        <span class="line"></span>
+        <p>You are Welcome.</p>
+        <p>My name is Anton Khudobchenok.</p>
+        <p>This is my pet-project.</p>
+        <p>You can contact me by mail: antonkhudobchenok@gmail.com</p>
+        <a href="/welcome">Main</a>
+    </div>
+</div>
 </body>
 </html>
