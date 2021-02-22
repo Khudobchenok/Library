@@ -5,7 +5,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
 
@@ -26,11 +25,8 @@ public class User implements UserDetails {
     //Определение имени столбца
     @Column(name = "id", nullable = false)
     private Long id;
-    //Минимальная длина поля - 2, если ограничение будет нарушено будет выведено сообщение
-    @Size(min = 2, message = "Не меньше 5 знаков")
     @Column(name = "login", unique = true)
     private String username;
-    @Size(min = 2, message = "Не меньше 5 знаков")
     @Column(name = "password")
     private String password;
     //Поле не будет отображаться в БД

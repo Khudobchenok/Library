@@ -45,9 +45,7 @@ public class RegistrationController {
             model.addAttribute("passwordError", "Пароли не совпадают");
             return "registration";
         }
-        if (!userService.saveUser(userForm)) {
-            model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
-
+        if (!userService.saveUser(userForm, model)) {
             return "registration";
         }
 

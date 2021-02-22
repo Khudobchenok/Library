@@ -5,6 +5,7 @@ import com.library.repository.AuthorRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -14,7 +15,15 @@ public class AuthorService {
     @Autowired
     AuthorRepo authorRepo;
 
-    public boolean addAuthor (Author author) {
+    public boolean addAuthor (Author author, Model model) {
+        if (author.getName().isEmpty()) {
+            model.addAttribute("nameError", "Enter name");
+            return false;
+        }
+        if (author.getBiography().isEmpty()) {
+            model.addAttribute("biographyError", "Enter biography");
+            return false;
+        }
         for (Author authorFromDB : authorRepo.findAll()) {
             if (authorFromDB.getName().equalsIgnoreCase(author.getName()))
                 return false;

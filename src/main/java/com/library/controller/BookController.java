@@ -2,6 +2,7 @@ package com.library.controller;
 
 import com.library.entity.Book;
 import com.library.entity.User;
+import com.library.repository.BookRepo;
 import com.library.service.AuthorService;
 import com.library.service.BookService;
 import com.library.service.UserService;
@@ -22,6 +23,9 @@ public class BookController {
     @Autowired
     private AuthorService authorService;
 
+    @Autowired
+    private BookRepo bookRepo;
+
     @GetMapping("/books")
     public String userList(Model model) {
         model.addAttribute("allBooks", bookService.allBooks());
@@ -41,12 +45,16 @@ public class BookController {
         if (bindingResult.hasErrors()) {
             return "addBook";
         }
-        if (!bookService.addBook(bookForm)) {
-            model.addAttribute("nameError", "This book already add");
-
+        if (!bookService.addBook(bookForm, model)) {
             return "addBook";
         }
 
         return "redirect:/books";
     }
+/*
+    @GetMapping("/bookPage/${book}")
+    public String bookPage(@PathVariable("book") Book book, Model model)  {
+        model.addAttribute("book", book);
+        return "books";
+    }*/
 }

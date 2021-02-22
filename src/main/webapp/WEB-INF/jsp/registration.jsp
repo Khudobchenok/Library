@@ -67,7 +67,7 @@
                     <form:input class="input100" type="text" path="username"
                                 placeholder="Type your username" autofocus="true"></form:input>
                     <form:errors path="username"></form:errors>
-                        ${usernameError}
+                        ${registrationError}
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
 
