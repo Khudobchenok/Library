@@ -31,8 +31,7 @@ public class AuthorController {
         if (bindingResult.hasErrors()) {
             return "addAuthor";
         }
-        if (!authorService.addAuthor(authorForm)) {
-            model.addAttribute("nameError", "This author already add");
+        if (!authorService.addAuthor(authorForm, model)) {
 
             return "addAuthor";
         }

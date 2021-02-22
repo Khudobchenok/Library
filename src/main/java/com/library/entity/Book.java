@@ -26,7 +26,6 @@ public class Book {
     private String demoVersion;
     @OneToOne
     private Author author;
-    private BufferedImage image;
 
     /**
      * Конструкторы

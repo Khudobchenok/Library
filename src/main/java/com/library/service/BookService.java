@@ -7,6 +7,7 @@ import com.library.repository.BookRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -17,10 +18,28 @@ public class BookService {
     @Autowired
     BookRepo bookRepo;
 
-    public boolean addBook(Book book) {
+    public boolean addBook(Book book, Model model) {
+        if (book.getAuthor() == null) {
+            model.addAttribute("authorError", "Select author");
+            return false;
+        }
+        if (book.getName().isEmpty()) {
+            model.addAttribute("nameError", "Enter name");
+            return false;
+        }
+        if (book.getDescription().isEmpty()) {
+            model.addAttribute("descriptionError", "Enter description");
+            return false;
+        }
+        if (book.getDemoVersion().isEmpty()) {
+            model.addAttribute("demoVersionError", "Enter demo version of book");
+            return false;
+        }
         for (Book bookFromDB : bookRepo.findAll()) {
-            if (bookFromDB.getName().equalsIgnoreCase(book.getName()))
+            if (bookFromDB.getName().equalsIgnoreCase(book.getName())) {
+                model.addAttribute("nameError", "This book already add");
                 return false;
+            }
         }
         try {
             bookRepo.save(book);

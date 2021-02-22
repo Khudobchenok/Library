@@ -49,6 +49,8 @@
             <li>
                 <label for="biography">Biography*:</label>
                 <form:textarea path="biography" cols="120" rows="10" placeholder="Aleksandr Pushkin, in full Aleksandr Sergeyevich Pushkin, (born May 26 [June 6, New Style], 1799, Moscow, Russia—died January 29 [February 10], 1837, St. Petersburg), Russian poet, novelist, dramatist, and short-story writer; he has often been considered his country’s greatest poet and the founder of modern Russian literature."></form:textarea>
+                <form:errors path="biography"></form:errors>
+                <br>${biographyError}
             </li>
             <li>
                 <button class="submit" type="submit">Submit Form</button>

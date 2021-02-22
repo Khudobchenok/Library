@@ -31,17 +31,34 @@
     </ul>
 </nav>
 <center>
-    <sec:authorize access="hasRole('ADMIN')">
-        <a href="/addAuthor" class="floating-button">New author</a>
-        <a href="/addBook" class="floating-button">New book</a>
-    </sec:authorize>
-<table>
+<table style="display: inline-block;">
+    <tr>
+        <th colspan="2">
+            <sec:authorize access="hasRole('ADMIN')">
+                <a href="/addAuthor" class="floating-button">New author</a>
+            </sec:authorize>
+        </th>
+    </tr>
+    <c:forEach items="${allAuthors}" var="author">
+        <tr>
+            <td><img src="https://html5book.ru/wp-content/uploads/2015/04/dress-2.png"></td>
+            <td>${author.name} <br> ${author.biography}</td>
+        </tr>
+    </c:forEach>
+
+</table>
+<table style="float: left;">
+    <tr>
+        <th colspan="2">
+            <sec:authorize access="hasRole('ADMIN')">
+                <a href="/addBook" class="floating-button">New book</a>
+            </sec:authorize>
+        </th>
+    </tr>
     <c:forEach items="${allBooks}" var="book">
         <tr>
-            <td><font size="6" color="black" face="Times, Times New Roman, serif">${book.author.name}</font> <%--<br> ${book.author.name}--%></td>
-            <td><img src="https://html5book.ru/wp-content/uploads/2015/04/dress-2.png"></td>
-            <td><font size="6" color="black", face="Marker Felt, fantasy">${book.name}</font>
-                <br><font size="5" color="black", face="Snell Roundhand, cursive"> ${book.description} </font></td>
+            <td><a href="bookPage/${book}"><img src="https://html5book.ru/wp-content/uploads/2015/04/dress-2.png"></a></td>
+            <td><a href="bookPage"><${book.name} <br> ${book.description}</a></td>
         </tr>
     </c:forEach>
 </table>
