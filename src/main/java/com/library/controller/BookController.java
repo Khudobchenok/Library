@@ -46,15 +46,14 @@ public class BookController {
             return "addBook";
         }
         if (!bookService.addBook(bookForm, model)) {
-            return "addBook";
+            return "redirect:/addBook";
         }
 
         return "redirect:/books";
     }
-/*
-    @GetMapping("/bookPage/${book}")
-    public String bookPage(@PathVariable("book") Book book, Model model)  {
+    @GetMapping("/bookPage")
+    public String bookPage(@ModelAttribute("book") Book book, Model model)  {
         model.addAttribute("book", book);
         return "books";
-    }*/
+    }
 }
