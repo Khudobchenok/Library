@@ -65,7 +65,7 @@
                     <form action="${pageContext.request.contextPath}/addAdmin" method="post">
                         <input type="hidden" name="userId" value="${user.id}"/>
                         <input type="hidden" name="action" value="newAdmin"/>
-                        <button type="submit">SetRoles</button>
+                        <button type="submit">Make admin</button>
                     </form>
                 </td>
             </tr>

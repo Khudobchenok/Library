@@ -52,7 +52,7 @@
             </li>
             <li>
                 <label for="name">Name*:</label>
-                <form:input type="message" path="name" placeholder="Captain's daughter"></form:input>
+                <form:input type="message" path="name" placeholder="Captain's daughter" ></form:input>
                 <form:errors path="name"></form:errors>
                     ${nameError}
             </li>

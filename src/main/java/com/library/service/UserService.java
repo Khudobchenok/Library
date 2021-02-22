@@ -15,9 +15,7 @@ import org.springframework.ui.Model;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Создание сервиса для обеспечения приложения бизнес-логикой
@@ -107,10 +105,9 @@ public class UserService implements UserDetailsService {
     public boolean addAdmin(Long userId) {
         if (userRepo.findById(userId).isPresent()) {
             User user = userRepo.findUserById(userId);
-            /*user.setRoles();
-            userRepo.save()*/
-
-            /*em.createQuery("INSERT INTO public.users_roles(user_id, roles_id) VALUES (userId, 2)");*/
+            Set<Role> roles = new HashSet<>(roleRepo.findAll());
+            user.setRoles(roles);
+            userRepo.save(user);
             return true;
         }
         return false;
