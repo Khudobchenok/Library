@@ -51,9 +51,10 @@ public class BookController {
 
         return "redirect:/books";
     }
+
     @GetMapping("/bookPage")
-    public String bookPage(@ModelAttribute("book") Book book, Model model)  {
-        model.addAttribute("book", book);
-        return "books";
+    public String actualBook(Model model, @RequestParam(value = "actualBook") Long id)  {
+        model.addAttribute("book", bookRepo.findBookById(id));
+        return "bookPage";
     }
 }

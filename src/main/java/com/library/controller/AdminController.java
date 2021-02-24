@@ -1,6 +1,7 @@
 package com.library.controller;
 
 import com.library.repository.BookRepo;
+import com.library.repository.UserRepo;
 import com.library.service.AuthorService;
 import com.library.service.BookService;
 import com.library.service.UserService;
@@ -8,10 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Создание контроллера AdminController.
@@ -33,6 +31,9 @@ public class AdminController {
 
     @Autowired
     private BookRepo bookRepo;
+
+    @Autowired
+    private UserRepo userRepo;
 
     @GetMapping("/admin")
     public String userList(Model model) {
@@ -87,5 +88,18 @@ public class AdminController {
             userService.addAdmin(userId);
         }
         return "redirect:/admin";
+    }
+
+    @GetMapping("/startProject")
+    public String startProject () {
+        Long userId = userRepo.findByUsername(userService.getCurrentUsername()).getId();
+        try {
+            userService.addRoles();
+            userService.addAdmin(userId);
+            return "redirect:/welcome";
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            return "redirect:/welcome";
+        }
     }
 }

@@ -40,15 +40,17 @@
             <div class="post-header">
                 <h1>${book.name}</h1>
                 <div class="post-meta">
-                    <time datetime="2019-04-01">Апрель, 1</time>
-                    <span class="author">Ирина Клубничная</span>
-                    <span class="category">Философия</span>
+                    <time datetime="2019-04-01"></time>
+                    <span class="author"><a href="../authorPage/?actualAuthor=${book.author.id}">${book.author.name}</a></span>
+                    <span class="category"></span>
                 </div>
             </div>
-            <p>С другой стороны, разбавленное изрядной долей эмпатии, рациональное мышление обеспечивает
-                актуальность системы массового участия. В своем стремлении улучшить пользовательский опыт мы
-                упускаем, что интерактивные прототипы, вне зависимости от их уровня, должны быть ассоциативно
-                распределены по отраслям.
+            <p>
+                ${book.description}
+            </p>
+            <hr>
+            <p>
+                ${book.demoVersion}
             </p>
         </div>
     </div>
