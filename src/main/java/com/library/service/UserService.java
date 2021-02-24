@@ -6,6 +6,8 @@ import com.library.repository.RoleRepo;
 import com.library.repository.UserRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,6 +17,7 @@ import org.springframework.ui.Model;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.security.Principal;
 import java.util.*;
 
 /**
@@ -116,5 +119,16 @@ public class UserService implements UserDetailsService {
     public List<User> usergtList(Long idMin) {
         return em.createQuery("SELECT u FROM User u WHERE u.id > :paramId", User.class)
                 .setParameter("paramId", idMin).getResultList();
+    }
+
+    public boolean addRoles() {
+        roleRepo.save(new Role(1L, "ROLE_USER"));
+        roleRepo.save(new Role(2L, "ROLE_ADMIN"));
+        return true;
+    }
+
+    public String getCurrentUsername() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth.getName();
     }
 }

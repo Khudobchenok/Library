@@ -38,17 +38,25 @@
         </div>
         <div class="post-content">
             <div class="post-header">
-                <h1>Сложно сказать, почему чистый разум не скован границами</h1>
-                <div class="post-meta">
+                <h1>${author.name}</h1>
+                <%--<div class="post-meta">
                     <time datetime="2019-04-01">Апрель, 1</time>
                     <span class="author">Мария Малиновая</span>
                     <span class="category">Философия</span>
-                </div>
+                </div>--%>
             </div>
-            <p>Идейные соображения высшего порядка, а также курс на социально-ориентированный национальный проект создает
-                необходимость включения в производственный план целого ряда внеочередных мероприятий с учетом комплекса
-                прогресса профессионального сообщества.
+            <p>
+                ${author.biography}
             </p>
+            <hr>
+            <table>
+                <c:forEach items="${books}" var="book">
+                    <tr>
+                        <td><a href="../bookPage/?actualBook=${book.id}"><img src="https://html5book.ru/wp-content/uploads/2015/04/dress-2.png"></a></td>
+                        <td><a href="../bookPage/?actualBook=${book.id}">${book.name}</a></td>
+                    </tr>
+                </c:forEach>
+            </table>
         </div>
     </div>
 </div>

@@ -57,8 +57,8 @@
     </tr>
     <c:forEach items="${allBooks}" var="book">
         <tr>
-            <td><a href="bookPage/${book}"><img src="https://html5book.ru/wp-content/uploads/2015/04/dress-2.png"></a></td>
-            <td><a href="bookPage"><${book.name} <br> ${book.description}</a></td>
+            <td><a href="bookPage/?actualBook=${book.id}"><img src="https://html5book.ru/wp-content/uploads/2015/04/dress-2.png"></a></td>
+            <td><a href="bookPage/?actualBook=${book.id}"><${book.name} <br> ${book.description}</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -1,7 +1,8 @@
 package com.library.controller;
 
 import com.library.entity.Author;
-import com.library.entity.Book;
+import com.library.repository.AuthorRepo;
+import com.library.repository.BookRepo;
 import com.library.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -18,6 +20,12 @@ public class AuthorController {
 
     @Autowired
     private AuthorService authorService;
+
+    @Autowired
+    private AuthorRepo authorRepo;
+
+    @Autowired
+    private BookRepo bookRepo;
 
     @GetMapping("/addAuthor")
     public String addAuthor(Model model) {
@@ -37,5 +45,12 @@ public class AuthorController {
         }
 
         return "redirect:/books";
+    }
+
+    @GetMapping("/authorPage")
+    public String actualAuthor(Model model, @RequestParam(value = "actualAuthor") Long id) {
+        model.addAttribute("author", authorRepo.findAuthorById(id));
+        model.addAttribute("books", bookRepo.findBooksByAuthor_Id(id));
+        return "authorPage";
     }
 }

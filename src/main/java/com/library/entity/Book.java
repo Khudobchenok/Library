@@ -4,6 +4,7 @@ package com.library.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.print.attribute.standard.Media;
 import java.awt.image.BufferedImage;
 
 /**
@@ -26,6 +27,7 @@ public class Book {
     private String demoVersion;
     @OneToOne
     private Author author;
+    /*private Media media;*/
 
     /**
      * Конструкторы
