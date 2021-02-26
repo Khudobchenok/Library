@@ -41,7 +41,7 @@
     </tr>
     <c:forEach items="${allAuthors}" var="author">
         <tr>
-            <td><img src="https://html5book.ru/wp-content/uploads/2015/04/dress-2.png"></td>
+            <td><img src="${author.imageFileName}" width="100" height="100"></td>
             <td>${author.name} <br> ${author.biography}</td>
         </tr>
     </c:forEach>
@@ -57,8 +57,8 @@
     </tr>
     <c:forEach items="${allBooks}" var="book">
         <tr>
-            <td><a href="bookPage/?actualBook=${book.id}"><img src="https://html5book.ru/wp-content/uploads/2015/04/dress-2.png"></a></td>
-            <td><a href="bookPage/?actualBook=${book.id}"><${book.name} <br> ${book.description}</a></td>
+            <td><a href="bookPage/?actualBook=${book.id}"><img src="${book.imageFileName}" width="100" height="100"></a></td>
+            <td><a href="bookPage/?actualBook=${book.id}">${book.name} <br> ${book.description}</a></td>
         </tr>
     </c:forEach>
 </table>

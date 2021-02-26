@@ -34,7 +34,7 @@
 <div class="container">
     <div class="post">
         <div class="post-image">
-            <img src="https://html5book.ru/wp-content/uploads/2019/03/postimage1.jpg">
+            <img src="${author.imageFileName}" width="100" height="100">
         </div>
         <div class="post-content">
             <div class="post-header">
@@ -52,7 +52,7 @@
             <table>
                 <c:forEach items="${books}" var="book">
                     <tr>
-                        <td><a href="../bookPage/?actualBook=${book.id}"><img src="https://html5book.ru/wp-content/uploads/2015/04/dress-2.png"></a></td>
+                        <td><a href="../bookPage/?actualBook=${book.id}"><img src="${book.imageFileName}" width="100" height="100"></a></td>
                         <td><a href="../bookPage/?actualBook=${book.id}">${book.name}</a></td>
                     </tr>
                 </c:forEach>

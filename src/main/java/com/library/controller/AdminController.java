@@ -1,5 +1,6 @@
 package com.library.controller;
 
+import com.library.entity.User;
 import com.library.repository.BookRepo;
 import com.library.repository.UserRepo;
 import com.library.service.AuthorService;
@@ -7,6 +8,7 @@ import com.library.service.BookService;
 import com.library.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +36,9 @@ public class AdminController {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @GetMapping("/admin")
     public String userList(Model model) {
@@ -92,10 +97,11 @@ public class AdminController {
 
     @GetMapping("/startProject")
     public String startProject () {
-        Long userId = userRepo.findByUsername(userService.getCurrentUsername()).getId();
         try {
             userService.addRoles();
-            userService.addAdmin(userId);
+            User user = userRepo.save(new User("admin","admin"));
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            userService.addAdmin(user.getId());
             return "redirect:/welcome";
         } catch (Exception e) {
             log.error(e.getMessage(), e);

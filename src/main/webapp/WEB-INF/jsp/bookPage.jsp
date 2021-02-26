@@ -34,7 +34,7 @@
 <div class="container">
     <div class="post">
         <div class="post-image">
-            <img src="https://html5book.ru/wp-content/uploads/2019/03/postimage6.jpg">
+            <img src="${book.imageFileName}" width="100" height="100">
         </div>
         <div class="post-content">
             <div class="post-header">
