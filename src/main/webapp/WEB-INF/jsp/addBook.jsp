@@ -57,6 +57,10 @@
                     ${nameError}
             </li>
             <li>
+                <label for="imageFileName">Image*:</label>
+                <form:textarea path="imageFileName" cols="10" rows="1" placeholder="Add url for photo"></form:textarea>
+            </li>
+            <li>
                 <label for="description">Description*:</label>
                 <form:textarea path="description" cols="120" rows="10" placeholder="Alexander Pushkin's short novel is set during the reign of Catherine the Great, when the Cossacks rose up in rebellion against the Russian empress. Presented as the memoir of Pyotr Grinyov, a nobleman, The Captain's Daughter tells how, as a feckless youth and fledgling officer, Grinyov was sent from St."></form:textarea>
                 <form:errors path="description"></form:errors>

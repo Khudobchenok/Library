@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 import java.util.List;
 
 @Slf4j
@@ -19,6 +23,9 @@ public class BookService {
     BookRepo bookRepo;
 
     public boolean addBook(Book book, Model model) {
+        if (book.getImageFileName().isEmpty() || !book.getImageFileName().startsWith("http")) {
+            book.setImageFileName("https://upload.wikimedia.org/wikipedia/commons/9/9a/%D0%9D%D0%B5%D1%82_%D1%84%D0%BE%D1%82%D0%BE.png");
+        }
         if (book.getAuthor() == null) {
             model.addAttribute("authorError", "Select author");
             return false;
@@ -60,6 +67,10 @@ public class BookService {
             bookRepo.deleteById(bookId);
             return true;
         }
+        return false;
+    }
+
+    public boolean addImageForBook(Book book) {
         return false;
     }
 }

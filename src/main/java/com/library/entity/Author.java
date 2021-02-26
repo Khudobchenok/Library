@@ -23,6 +23,7 @@ public class Author {
     private String biography;
     @OneToMany
     private List<Book> books;
+    String imageFileName;
 
     /**
      * Конструкторы
@@ -30,8 +31,9 @@ public class Author {
 
     public Author () {}
 
-    public Author (String name, String biography) {
+    public Author (String name, String biography, String imageFileName) {
         this.name = name;
         this.biography = biography;
+        this.imageFileName = imageFileName;
     }
 }
