@@ -7,8 +7,45 @@ body {
     background-size: 100%; /* Современные браузеры */
 }
 /*TABLE*/
+.book-name {
+    text-align: center;
+    font-size: 1.8em;
+
+}
+a.book-name:active {
+    color: #9ACD32;
+    text-decoration: none
+}
+a.book-name:hover {
+    color: #F0E68C;
+    text-decoration: none
+}
+a.book-name {
+    color: #9ACD32;
+    text-decoration: none
+}
+.description {
+    font-size: 1em;
+    width: 500px;
+    text-align: justify;
+    box-sizing: border-box;
+    white-space: normal;
+    word-wrap: break-word;
+    text-indent: 1.5em;
+}
+a.description:active {
+    color: #7B68EE;
+    text-decoration: none
+}
+a.description:hover {
+    color: #9932CC;
+    text-decoration: none
+}
+a.description {
+    color: #7B68EE;
+    text-decoration: none
+}
 table {
-    width: 900px;
     border-spacing: 0 10px;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;

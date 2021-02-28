@@ -13,6 +13,9 @@ body {
     padding: 0 15px;
     background: white;
 }
+.post {
+    padding: 2em 0 1em;
+}
 .post-image img {
     width: 100%;
     margin: 0 0 20px 0;
@@ -47,6 +50,18 @@ time:after,
 p {
     line-height: 1.5;
     margin-bottom: 1em;
+    text-align: justify;
+    white-space: normal;
+    word-wrap: break-word;
+    text-indent: 2em;
+}
+.z {
+    text-align: center;
+    color: chocolate;
+}
+.book-table {
+    width: 600px;
+    margin: auto;
 }
 @media (min-width: 768px) {
     body {
@@ -58,7 +73,8 @@ p {
     .post-image img {
         float: right;
         width: 300px;
-        margin: 0 0 20px 20px;
+        margin: 0 30px 20px 0;
+        border: 10px solid #DDDDDF;
     }
     .post-header {
         padding-left: 26px;

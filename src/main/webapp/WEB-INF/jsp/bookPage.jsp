@@ -34,21 +34,32 @@
 <div class="container">
     <div class="post">
         <div class="post-image">
-            <img src="${book.imageFileName}" width="100" height="100">
+            <img src="${book.imageFileName}" >
         </div>
         <div class="post-content">
             <div class="post-header">
                 <h1>${book.name}</h1>
                 <div class="post-meta">
                     <time datetime="2019-04-01"></time>
-                    <span class="author"><a href="../authorPage/?actualAuthor=${book.author.id}">${book.author.name}</a></span>
+                    <span class="author"><a href="../authorPage/?actualAuthor=${book.author.id}" class="book-name">
+                        ${book.author.name}
+                    </a></span>
                     <span class="category"></span>
                 </div>
             </div>
+            <div class="z">
+                Description:
+            </div>
+                <br>
             <p>
                 ${book.description}
             </p>
             <hr>
+            <br>
+            <div class="z">
+            Demo verion of book:
+            </div>
+                <br>
             <p>
                 ${book.demoVersion}
             </p>
