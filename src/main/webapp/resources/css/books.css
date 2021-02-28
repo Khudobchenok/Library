@@ -8,20 +8,24 @@ body {
 }
 /*TABLE*/
 .book-name {
-    text-align: center;
-    font-size: 1.8em;
-
+    text-align: justify;
+    font-size: 1.6em;
+    width: 500px;
+    box-sizing: border-box;
+    white-space: normal;
+    word-wrap: break-word;
+    font-family:Georgia, Times, "Times New Roman", serif;
 }
 a.book-name:active {
-    color: #9ACD32;
+    color: black;
     text-decoration: none
 }
 a.book-name:hover {
-    color: #F0E68C;
+    color: #212529;
     text-decoration: none
 }
 a.book-name {
-    color: #9ACD32;
+    color: black;
     text-decoration: none
 }
 .description {
@@ -32,17 +36,18 @@ a.book-name {
     white-space: normal;
     word-wrap: break-word;
     text-indent: 1.5em;
+    font-family:Georgia, Times, "Times New Roman", serif;
 }
 a.description:active {
-    color: #7B68EE;
+    color: #606060;
     text-decoration: none
 }
 a.description:hover {
-    color: #9932CC;
+    color: #777777;
     text-decoration: none
 }
 a.description {
-    color: #7B68EE;
+    color: #606060;
     text-decoration: none
 }
 table {

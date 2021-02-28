@@ -43,7 +43,7 @@
         <tr>
             <td><a href="authorPage/?actualAuthor=${author.id}"><img src="${author.imageFileName}" width="100" height="100"></a></td>
             <td><a href="authorPage/?actualAuthor=${author.id}" class="book-name">
-                    <div>${author.name}</div>
+                    <div class="book-name">${author.name}</div>
                 </a>
                 <hr>
                 <br>
@@ -67,7 +67,7 @@
         <tr>
             <td><a href="bookPage/?actualBook=${book.id}"><img src="${book.imageFileName}" width="100" height="100"></a></td>
             <td><a href="bookPage/?actualBook=${book.id}" class="book-name">
-                    <div>${book.name}</div>
+                    <div class="book-name">${book.name}</div>
                 </a>
                 <hr>
                 <br>

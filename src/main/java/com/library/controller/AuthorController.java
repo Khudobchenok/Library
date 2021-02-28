@@ -1,9 +1,12 @@
 package com.library.controller;
 
 import com.library.entity.Author;
+import com.library.error.Error;
 import com.library.repository.AuthorRepo;
 import com.library.repository.BookRepo;
+import com.library.repository.UserRepo;
 import com.library.service.AuthorService;
+import com.library.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,9 +30,16 @@ public class AuthorController {
     @Autowired
     private BookRepo bookRepo;
 
+    @Autowired
+    private UserRepo userRepo;
+
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/addAuthor")
     public String addAuthor(Model model) {
         model.addAttribute("authorForm", new Author());
+        model.addAttribute("authorError", Error.getMessage(userRepo.findByUsername(userService.getCurrentUsername())));
         return "addAuthor";
     }
 
@@ -41,7 +51,7 @@ public class AuthorController {
         }
         if (!authorService.addAuthor(authorForm, model)) {
 
-            return "addAuthor";
+            return "redirect:/addAuthor";
         }
 
         return "redirect:/books";
