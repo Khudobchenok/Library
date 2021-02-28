@@ -54,11 +54,15 @@
             </p>
             <hr>
             <table class="book-table">
+                <br>
+                <div class="z">
+                    List of books:
+                </div>
                 <c:forEach items="${books}" var="book">
                     <tr>
                         <td><a href="../bookPage/?actualBook=${book.id}"><img src="${book.imageFileName}" width="100" height="100"></a></td>
                         <td><a href="../bookPage/?actualBook=${book.id}" class="book-name">
-                            <div>${book.name}</div>
+                            <div class="book-name">${book.name}</div>
                         </a>
                         </td>
                     </tr>

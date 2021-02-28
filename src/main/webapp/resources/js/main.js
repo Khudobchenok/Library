@@ -66,13 +66,13 @@
     }
 
     /*Count of symbol*/
-    var characters_Limit = 1500;
+    /*var characters_Limit = 1500;
     $('#myInput').keyup(function() {
         if ($(this).val().length > characters_Limit) {
             $(this).val($(this).val().substr(0, characters_Limit));
 
         }
         $('#charCount').text(this.value.replace(/{.*}/g, '').length);
-    });
+    });*/
 })(jQuery);
 

@@ -2,7 +2,9 @@ package com.library.controller;
 
 import com.library.entity.Book;
 import com.library.entity.User;
+import com.library.error.Error;
 import com.library.repository.BookRepo;
+import com.library.repository.UserRepo;
 import com.library.service.AuthorService;
 import com.library.service.BookService;
 import com.library.service.UserService;
@@ -26,6 +28,12 @@ public class BookController {
     @Autowired
     private BookRepo bookRepo;
 
+    @Autowired
+    private UserRepo userRepo;
+
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/books")
     public String userList(Model model) {
         model.addAttribute("allBooks", bookService.allBooks());
@@ -36,6 +44,7 @@ public class BookController {
     public String addBook(Model model) {
         model.addAttribute("bookForm", new Book());
         model.addAttribute("allAuthors", authorService.allAuthors());
+        model.addAttribute("error", Error.getMessage(userRepo.findByUsername(userService.getCurrentUsername())));
         return "addBook";
     }
 

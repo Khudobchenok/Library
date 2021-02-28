@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <!DOCTYPE html>
@@ -82,6 +83,10 @@
                 <th>Name</th>
                 <th>Delete</th>
             </tr>
+            <form:errors></form:errors>
+            <div class="blue">
+            ${adminError}
+            </div>
             <c:forEach items="${allAuthors}" var="author">
             <tr>
                 <td>${author.id}</td>

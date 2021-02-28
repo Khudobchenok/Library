@@ -1,6 +1,7 @@
 package com.library.controller;
 
 import com.library.entity.User;
+import com.library.error.Error;
 import com.library.repository.BookRepo;
 import com.library.repository.UserRepo;
 import com.library.service.AuthorService;
@@ -45,6 +46,7 @@ public class AdminController {
         model.addAttribute("allUsers", userService.allUsers());
         model.addAttribute("allAuthors", authorService.allAuthors());
         model.addAttribute("allBooks", bookService.allBooks());
+        model.addAttribute("adminError", Error.getMessage(userRepo.findByUsername(userService.getCurrentUsername())));
         return "admin";
     }
 
@@ -71,12 +73,12 @@ public class AdminController {
         if (bookRepo.findBooksByAuthor_Id(authorId).isEmpty()) {
             if (action.equals("delete")) {
                 authorService.deleteAuthor(authorId);
+                return "redirect:/admin";
             } else {
-                log.info("Author have books");
                 return "redirect:/admin";
             }
         }
-
+        Error.setMessage(userRepo.findByUsername(userService.getCurrentUsername()), "Author has a book");
         return "redirect:/admin";
     }
 
