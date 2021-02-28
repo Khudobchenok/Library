@@ -10,6 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
     <link rel="icon" type="image/png" href="${contextPath}/resources/images/icons/favicon.ico"/>
+    <script src="${contextPath}/resources/vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="${contextPath}/resources/js/main.js"></script>
 </head>
 <body>
@@ -52,7 +53,8 @@
             </li>
             <li>
                 <label for="biography">Biography*:</label>
-                <form:textarea path="biography" cols="120" rows="10" placeholder="Aleksandr Pushkin, in full Aleksandr Sergeyevich Pushkin, (born May 26 [June 6, New Style], 1799, Moscow, Russia—died January 29 [February 10], 1837, St. Petersburg), Russian poet, novelist, dramatist, and short-story writer; he has often been considered his country’s greatest poet and the founder of modern Russian literature."></form:textarea>
+                <form:textarea id="myInput" path="biography" cols="120" rows="10" placeholder="Aleksandr Pushkin, in full Aleksandr Sergeyevich Pushkin, (born May 26 [June 6, New Style], 1799, Moscow, Russia—died January 29 [February 10], 1837, St. Petersburg), Russian poet, novelist, dramatist, and short-story writer; he has often been considered his country’s greatest poet and the founder of modern Russian literature."></form:textarea>
+                <%--<br> Counter: <span id="charCount"></span>--%>
                 <form:errors path="biography"></form:errors>
                 <br>${biographyError}
             </li>

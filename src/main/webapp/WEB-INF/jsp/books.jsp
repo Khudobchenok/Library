@@ -41,8 +41,16 @@
     </tr>
     <c:forEach items="${allAuthors}" var="author">
         <tr>
-            <td><img src="${author.imageFileName}" width="100" height="100"></td>
-            <td>${author.name} <br> ${author.biography}</td>
+            <td><a href="authorPage/?actualAuthor=${author.id}"><img src="${author.imageFileName}" width="100" height="100"></a></td>
+            <td><a href="authorPage/?actualAuthor=${author.id}" class="book-name">
+                    <div>${author.name}</div>
+                </a>
+                <hr>
+                <br>
+                <a href="authorPage/?actualAuthor=${author.id}" class="description">
+                    <div class="description">${author.biography}</div>
+                </a>
+            </td>
         </tr>
     </c:forEach>
 
@@ -58,14 +66,18 @@
     <c:forEach items="${allBooks}" var="book">
         <tr>
             <td><a href="bookPage/?actualBook=${book.id}"><img src="${book.imageFileName}" width="100" height="100"></a></td>
-            <td><a href="bookPage/?actualBook=${book.id}">${book.name} <br> ${book.description}</a></td>
+            <td><a href="bookPage/?actualBook=${book.id}" class="book-name">
+                    <div>${book.name}</div>
+                </a>
+                <hr>
+                <br>
+                <a href="bookPage/?actualBook=${book.id}" class="description">
+                    <div class="description">${book.description}</div>
+                </a>
+            </td>
         </tr>
     </c:forEach>
 </table>
 </center>
-<blockquote>
-    <p>While we are postponing, life speeds by.</p>
-    <footer>— <cite>Seneca</cite></footer>
-</blockquote>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
     <link rel="icon" type="image/png" href="${contextPath}/resources/images/icons/favicon.ico"/>
-    <script src="${contextPath}/resources/js/main.js"></script>
+    <script type="text/javascript" src="${contextPath}/resources/js/main.js"></script>
 </head>
 <body>
 <nav>

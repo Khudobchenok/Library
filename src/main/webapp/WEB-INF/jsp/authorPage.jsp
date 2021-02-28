@@ -34,7 +34,7 @@
 <div class="container">
     <div class="post">
         <div class="post-image">
-            <img src="${author.imageFileName}" width="100" height="100">
+            <img src="${author.imageFileName}">
         </div>
         <div class="post-content">
             <div class="post-header">
@@ -45,15 +45,22 @@
                     <span class="category">Философия</span>
                 </div>--%>
             </div>
+            <div class="z">
+                Biography:
+            </div>
+            <br>
             <p>
                 ${author.biography}
             </p>
             <hr>
-            <table>
+            <table class="book-table">
                 <c:forEach items="${books}" var="book">
                     <tr>
                         <td><a href="../bookPage/?actualBook=${book.id}"><img src="${book.imageFileName}" width="100" height="100"></a></td>
-                        <td><a href="../bookPage/?actualBook=${book.id}">${book.name}</a></td>
+                        <td><a href="../bookPage/?actualBook=${book.id}" class="book-name">
+                            <div>${book.name}</div>
+                        </a>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>

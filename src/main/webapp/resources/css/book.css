@@ -26,6 +26,7 @@ body {
     margin-bottom: 30px;
 }
 .post-header {
+    font-size: 1em;
     text-align: center;
 }
 .post-meta {
@@ -63,6 +64,13 @@ p {
     line-height: 1.5;
     margin-bottom: 1em;
     text-align: justify;
+    white-space: normal;
+    word-wrap: break-word;
+    text-indent: 2em;
+}
+.z {
+    text-align: center;
+    color: chocolate;
 }
 @media (min-width: 768px) {
     body {
@@ -74,8 +82,7 @@ p {
     .post-image img {
         float: left;
         width: 300px;
-        margin: 0 30px 20px -45px;
+        margin: 0 30px 20px 0;
         border: 10px solid #DDDDDF;
-        border-left-width: 0;
     }
 }
