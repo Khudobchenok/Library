@@ -40,22 +40,22 @@ public class BookController {
         model.addAttribute("allAuthors", authorService.allAuthors());
         return "books";
     }
-    @GetMapping("/addBook")
+    @GetMapping("/addNewBook")
     public String addBook(Model model) {
         model.addAttribute("bookForm", new Book());
         model.addAttribute("allAuthors", authorService.allAuthors());
         model.addAttribute("error", Error.getMessage(userRepo.findByUsername(userService.getCurrentUsername())));
-        return "addBook";
+        return "addNewBook";
     }
 
-    @PostMapping("/addBook")
+    @PostMapping("/addNewBook")
     public String addBook(@ModelAttribute("bookForm") @Valid Book bookForm, BindingResult bindingResult,
                           Model model) {
         if (bindingResult.hasErrors()) {
-            return "addBook";
+            return "addNewBook";
         }
         if (!bookService.addBook(bookForm, model)) {
-            return "redirect:/addBook";
+            return "redirect:/addNewBook";
         }
 
         return "redirect:/books";

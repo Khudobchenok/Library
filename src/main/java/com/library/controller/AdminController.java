@@ -1,7 +1,9 @@
 package com.library.controller;
 
+import com.library.entity.Author;
 import com.library.entity.User;
 import com.library.error.Error;
+import com.library.repository.AuthorRepo;
 import com.library.repository.BookRepo;
 import com.library.repository.UserRepo;
 import com.library.service.AuthorService;
@@ -39,6 +41,9 @@ public class AdminController {
     private UserRepo userRepo;
 
     @Autowired
+    private AuthorRepo authorRepo;
+
+    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @GetMapping("/admin")
@@ -51,53 +56,45 @@ public class AdminController {
     }
 
     //Доступ к странице admin имеют только пользователи с ролью администратора
-    @PostMapping("/adminDeleteUser")
-    public String deleteUser(@RequestParam(required = true, defaultValue = "") Long userId,
+    @PostMapping("/admin/delete/user/{userId}")
+    public String deleteUser(@PathVariable Long userId,
                              @RequestParam(required = true, defaultValue = "") String action) {
         if (action.equals("delete")) {
             userService.deleteUser(userId);
         }
         return "redirect:/admin";
     }
-    @PostMapping("/adminDeleteBook")
-    public String deleteBook(@RequestParam(required = true, defaultValue = "") Long bookId,
-                             @RequestParam(required = true, defaultValue = "") String action) {
+    @PostMapping("/admin/delete/book/{bookId}")
+    public String deleteBook(@RequestParam(required = true, defaultValue = "") String action,
+                             @PathVariable Long bookId) {
         if (action.equals("delete")) {
             bookService.deleteBook(bookId);
         }
         return "redirect:/admin";
     }
-    @PostMapping("/adminDeleteAuthor")
-    public String deleteAuthor(@RequestParam(required = true, defaultValue = "") Long authorId,
+    @PostMapping("/admin/delete/author/{author:\\d+}")
+    public String deleteAuthor(@PathVariable Author author,
                                @RequestParam(required = true, defaultValue = "") String action) {
-        if (bookRepo.findBooksByAuthor_Id(authorId).isEmpty()) {
+        if (author.isValid()){
             if (action.equals("delete")) {
-                authorService.deleteAuthor(authorId);
-                return "redirect:/admin";
-            } else {
-                return "redirect:/admin";
+                authorRepo.delete(author);
             }
+            return "redirect:/admin";
         }
         Error.setMessage(userRepo.findByUsername(userService.getCurrentUsername()), "Author has a book");
         return "redirect:/admin";
     }
 
-    @GetMapping("/admin/gt/{userId}")
-    public String gtUser(@PathVariable("userId") Long userId, Model model) {
-        model.addAttribute("allUsers", userService.usergtList(userId));
-        return "admin";
-    }
-
-    @PostMapping("/addAdmin")
-    public String addAdmin (@RequestParam(required = true, defaultValue = "") Long userId,
-                            @RequestParam(required = true, defaultValue = "") String action) {
+    @PostMapping("/admin/giveAdmin/user/{userId}")
+    public String addAdmin(@PathVariable Long userId,
+                           @RequestParam(required = true, defaultValue = "") String action) {
         if (action.equals("newAdmin")) {
             userService.addAdmin(userId);
         }
         return "redirect:/admin";
     }
 
-    @GetMapping("/startProject")
+    @GetMapping("/admin/secret/startProject")
     public String startProject () {
         try {
             userService.addRoles();
