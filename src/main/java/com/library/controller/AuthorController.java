@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -36,31 +33,31 @@ public class AuthorController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/addAuthor")
+    @GetMapping("/books/addNewAuthor")
     public String addAuthor(Model model) {
         model.addAttribute("authorForm", new Author());
         model.addAttribute("authorError", Error.getMessage(userRepo.findByUsername(userService.getCurrentUsername())));
-        return "addAuthor";
+        return "books/addNewAuthor";
     }
 
-    @PostMapping("/addAuthor")
+    @PostMapping("/books/addNewAuthor")
     public String addAuthor(@ModelAttribute("authorForm") @Valid Author authorForm, BindingResult bindingResult,
                             Model model) {
         if (bindingResult.hasErrors()) {
-            return "addAuthor";
+            return "books/addNewAuthor";
         }
         if (!authorService.addAuthor(authorForm, model)) {
 
-            return "redirect:/addAuthor";
+            return "redirect:/books/addNewAuthor";
         }
 
-        return "redirect:/books";
+        return "redirect:/books/addNewAuthor";
     }
 
-    @GetMapping("/authorPage")
-    public String actualAuthor(Model model, @RequestParam(value = "actualAuthor") Long id) {
+    @GetMapping("/books/actualAuthor/{id}")
+    public String actualAuthor(Model model, @PathVariable Long id) {
         model.addAttribute("author", authorRepo.findAuthorById(id));
         model.addAttribute("books", bookRepo.findBooksByAuthor_Id(id));
-        return "authorPage";
+        return "books/actualAuthor/{id}";
     }
 }

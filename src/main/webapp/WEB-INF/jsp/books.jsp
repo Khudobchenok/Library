@@ -35,19 +35,19 @@
     <tr>
         <th colspan="2">
             <sec:authorize access="hasRole('ADMIN')">
-                <a href="/addAuthor" class="floating-button">New author</a>
+                <a href="/books/addNewAuthor" class="floating-button">New author</a>
             </sec:authorize>
         </th>
     </tr>
     <c:forEach items="${allAuthors}" var="author">
         <tr>
-            <td><a href="authorPage/?actualAuthor=${author.id}"><img src="${author.imageFileName}" width="100" height="100"></a></td>
-            <td><a href="authorPage/?actualAuthor=${author.id}" class="book-name">
+            <td><a href="books/actualAuthor/${author.id}"><img src="${author.imageFileName}" width="100" height="100"></a></td>
+            <td><a href="books/actualAuthor/${author.id}" class="book-name">
                     <div class="book-name">${author.name}</div>
                 </a>
                 <hr>
                 <br>
-                <a href="authorPage/?actualAuthor=${author.id}" class="description">
+                <a href="books/actualAuthor/${author.id}" class="description">
                     <div class="description">${author.biography}</div>
                 </a>
             </td>
@@ -59,7 +59,7 @@
     <tr>
         <th colspan="2">
             <sec:authorize access="hasRole('ADMIN')">
-                <a href="/addBook" class="floating-button">New book</a>
+                <a href="/addNewBook" class="floating-button">New book</a>
             </sec:authorize>
         </th>
     </tr>

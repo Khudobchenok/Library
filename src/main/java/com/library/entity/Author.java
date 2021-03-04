@@ -36,4 +36,8 @@ public class Author {
         this.biography = biography;
         this.imageFileName = imageFileName;
     }
+
+    public boolean isValid() {
+        return id != null && name != null && biography != null;
+    }
 }

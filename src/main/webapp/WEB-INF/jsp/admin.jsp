@@ -56,7 +56,7 @@
                     <c:forEach items="${user.roles}" var="role">${role.name}; </c:forEach>
                 </td>
                 <td>
-                    <form action="${pageContext.request.contextPath}/adminDeleteUser" method="post">
+                    <form action="${pageContext.request.contextPath}/admin/delete/user/${user.id}" method="post">
                         <input type="hidden" name="userId" value="${user.id}"/>
                         <input type="hidden" name="action" value="delete"/>
                         <button type="submit">Delete</button>
@@ -93,7 +93,7 @@
                 <td>${author.id}</td>
                 <td>${author.name}</td>
                 <td>
-                    <form action="${pageContext.request.contextPath}/adminDeleteAuthor" method="post">
+                    <form action="${pageContext.request.contextPath}/admin/delete/author/${author.id}" method="post">
                         <input type="hidden" name="authorId" value="${author.id}"/>
                         <input type="hidden" name="action" value="delete"/>
                         <button type="submit">Delete</button>
@@ -120,7 +120,7 @@
                     <td>${book.name}</td>
                     <td>${book.author.name}</td>
                     <td>
-                        <form action="${pageContext.request.contextPath}/adminDeleteBook" method="post">
+                        <form action="${pageContext.request.contextPath}/admin/delete/book/${book.id}" method="post">
                             <input type="hidden" name="bookId" value="${book.id}"/>
                             <input type="hidden" name="action" value="delete"/>
                             <button type="submit">Delete</button>
